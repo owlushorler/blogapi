@@ -1,0 +1,27 @@
+const express = require('express')
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+const mongoose = require('mongoose')
+require('dotenv').config()
+const PORT = process.env.PORT || 5000
+const DB = process.env.DB 
+const jwt = require('jsonwebtoken')
+const bc = require('bcrypt')
+mongoose.connect(DB).then(()=>console.log('connected to the DB')).catch((e)=>console.log(e))
+const user = require('./router/user')
+const userr = require('./router/ath1')
+const middle1 = require('./middleware/user')
+
+app.use('/api/auth/register',middle1,user )
+app.use('/api/auth/login',middle1,require('./router/login'))
+app.use('/api/posts',userr,)
+app.use('/api/posts',require('./router/post1'))
+app.use('/api/posts',require('./router/post2'))
+app.use('/api/posts',require('./router/post3'))
+app.use('/api/posts',require('./router/del1'))
+app.use('/api/users',require('./router/get8'))
+app.use('/api/users',require('./router/get9'))
+app.use('/api/users',require('./router/del10'))
+
+app.listen(PORT, ()=>console.log(`listening on ${PORT}`))
