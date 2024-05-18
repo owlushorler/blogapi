@@ -8,20 +8,11 @@ const PORT = process.env.PORT || 5000
 const DB = process.env.DB 
 const jwt = require('jsonwebtoken')
 const bc = require('bcrypt')
-mongoose.connect(DB).then(()=>console.log('connected to the DB')).catch((e)=>console.log(e))
-const user = require('./router/user')
-const userr = require('./router/ath1')
+mongoose.connect("mongodb+srv://owlushorler:Shola3819@owlushorler.2hspzcb.mongodb.net/?retryWrites=true&w=majority").then(()=>console.log('connected to the DB')).catch((e)=>console.log(e))
+
 const middle1 = require('./middleware/user')
 
-app.use('/api/auth/register',middle1,user )
-app.use('/api/auth/login',middle1,require('./router/login'))
-app.use('/api/posts',userr,)
-app.use('/api/posts',require('./router/post1'))
-app.use('/api/posts',require('./router/post2'))
-app.use('/api/posts',require('./router/post3'))
-app.use('/api/posts',require('./router/del1'))
-app.use('/api/users',require('./router/get8'))
-app.use('/api/users',require('./router/get9'))
-app.use('/api/users',require('./router/del10'))
+
+app.use('/',require('./router/attence'))
 
 app.listen(PORT, ()=>console.log(`listening on ${PORT}`))
