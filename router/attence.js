@@ -5,7 +5,7 @@ const data = require('../control/attenc')
 const nweek = require("../control/nwek")
 
 router.get('/', data )
-router.post('/wk', nweek )
+router.get('/wk', nweek )
 
 
 module.exports = router

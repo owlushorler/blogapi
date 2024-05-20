@@ -11,7 +11,8 @@ const man = async(req,res)=>{
     //
     const dam = wks.filter((ele)=>ele.subject === subject )
 
-    res.status(200).json({cust:dam})}
+    //res.status(200).json({cust:dam})}
+    res.status(200).json({cust:"go home my g"})}
    
 
 
